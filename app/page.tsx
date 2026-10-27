@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { galerie, photographe, prestations } from "./contenu-demo";
+import { photographe, prestations } from "./contenu-demo";
+import Galerie from "./galerie";
 
 const mailto = `mailto:${photographe.email}?subject=${encodeURIComponent(
   "Demande de prestation photo",
@@ -120,28 +120,9 @@ export default function Home() {
           <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Galerie</h2>
             <p className="mt-2 text-sm text-muted">
-              Photos factices de démonstration — à remplacer par de vraies photos.
+              Photos de démonstration (Unsplash) — cliquez pour agrandir.
             </p>
-            <div className="mt-8 columns-1 gap-4 sm:columns-2 lg:columns-3">
-              {galerie.map((photo, i) => (
-                <figure key={photo.legende} className="mb-4 break-inside-avoid">
-                  <div className="relative overflow-hidden rounded-lg">
-                    <Image
-                      src={photo.src}
-                      alt={`${photo.legende} (photo de démonstration)`}
-                      width={photo.largeur}
-                      height={photo.hauteur}
-                      sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
-                      className="h-auto w-full transition-transform duration-500 hover:scale-105"
-                    />
-                    <span className="absolute top-3 left-3 rounded bg-white/80 px-2 py-1 text-xs text-muted">
-                      Démo n°{i + 1}
-                    </span>
-                  </div>
-                  <figcaption className="mt-2 text-sm text-muted">{photo.legende}</figcaption>
-                </figure>
-              ))}
-            </div>
+            <Galerie />
           </div>
         </section>
 

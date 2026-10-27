@@ -37,12 +37,16 @@ export const prestations = [
   },
 ];
 
-// Photos factices : illustrations SVG dans public/demo/, à remplacer par les vraies photos.
+// Photos de démonstration : photos libres de droits issues d'Unsplash (licence Unsplash),
+// téléchargées dans public/demo/photos/. À remplacer par les photos du photographe.
 export const galerie = [
-  { legende: "Portrait en lumière naturelle", src: "/demo/portrait-lumiere.svg", largeur: 600, hauteur: 800 },
-  { legende: "Mariage — cérémonie", src: "/demo/mariage-ceremonie.svg", largeur: 800, hauteur: 800 },
-  { legende: "Paysage urbain", src: "/demo/paysage-urbain.svg", largeur: 800, hauteur: 600 },
-  { legende: "Portrait studio", src: "/demo/portrait-studio.svg", largeur: 800, hauteur: 800 },
-  { legende: "Produit — céramique", src: "/demo/produit-ceramique.svg", largeur: 600, hauteur: 800 },
-  { legende: "Soirée d’entreprise", src: "/demo/soiree-entreprise.svg", largeur: 800, hauteur: 600 },
+  { legende: "Portrait en extérieur", src: "/demo/photos/64.jpg", largeur: 1600, hauteur: 1067, auteur: "Alexander Shustov", lien: "https://unsplash.com/photos/AHBiSKaENwc" },
+  { legende: "Concert — événement", src: "/demo/photos/158.jpg", largeur: 1600, hauteur: 1067, auteur: "Daniel Robert", lien: "https://unsplash.com/photos/MRxD-J9-4ps" },
+  { legende: "Ville de nuit", src: "/demo/photos/43.jpg", largeur: 1600, hauteur: 1039, auteur: "Oleg Chursin", lien: "https://unsplash.com/photos/IoCWq07GaG4" },
+  { legende: "Produit — chaussures", src: "/demo/photos/21.jpg", largeur: 1600, hauteur: 1068, auteur: "Alejandro Escamilla", lien: "https://unsplash.com/photos/jVb0mSn0LbE" },
+  { legende: "Randonnée en montagne", src: "/demo/photos/177.jpg", largeur: 1600, hauteur: 1164, auteur: "Danka & Peter", lien: "https://unsplash.com/photos/tvicgTdh7Fg" },
+  { legende: "Scène de rue", src: "/demo/photos/22.jpg", largeur: 1600, hauteur: 1346, auteur: "Alejandro Escamilla", lien: "https://unsplash.com/photos/du_OrQAA4r0" },
+  { legende: "Produit — tasse de café", src: "/demo/photos/63.jpg", largeur: 1600, hauteur: 900, auteur: "Justin Leibow", lien: "https://unsplash.com/photos/ZJsseAxEcqM" },
+  { legende: "Paysage de Toscane", src: "/demo/photos/116.jpg", largeur: 1600, hauteur: 1067, auteur: "Anton Sulsky", lien: "https://unsplash.com/photos/YcfCXxo7rpc" },
+  { legende: "Photographe en reportage", src: "/demo/photos/91.jpg", largeur: 1600, hauteur: 1067, auteur: "Jennifer Trovato", lien: "https://unsplash.com/photos/baRYCsjO6z4" },
 ];
