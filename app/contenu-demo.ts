@@ -37,6 +37,13 @@ export const prestations = [
   },
 ];
 
+// Image de fond de la bannière (photo de démonstration Unsplash).
+export const banniere = {
+  src: "/demo/photos/banniere-62.jpg",
+  auteur: "Daniel Genser",
+  lien: "https://unsplash.com/photos/PzPbh-faPgU",
+};
+
 // Photos de démonstration : photos libres de droits issues d'Unsplash (licence Unsplash),
 // téléchargées dans public/demo/photos/. À remplacer par les photos du photographe.
 export const galerie = [

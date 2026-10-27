@@ -1,4 +1,5 @@
-import { photographe, prestations } from "./contenu-demo";
+import Image from "next/image";
+import { banniere, photographe, prestations } from "./contenu-demo";
 import Galerie from "./galerie";
 
 const mailto = `mailto:${photographe.email}?subject=${encodeURIComponent(
@@ -44,23 +45,42 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        {/* Accroche */}
-        <section className="mx-auto max-w-5xl px-4 pt-16 pb-12 sm:px-6 sm:pt-24">
-          <p className="text-sm font-medium uppercase tracking-widest text-accent">
-            {photographe.metier}
-          </p>
-          <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-            {photographe.accroche}
-          </h1>
-          <p className="mt-4 text-muted">{photographe.ville}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <BoutonContact />
-            <a
-              href="#galerie"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-border px-6 font-medium transition-colors hover:border-accent hover:text-accent"
-            >
-              Voir la galerie
-            </a>
+        {/* Bannière */}
+        <section className="relative isolate flex min-h-[70vh] items-end overflow-hidden sm:min-h-[80vh]">
+          <Image
+            src={banniere.src}
+            alt=""
+            fill
+            preload
+            sizes="100vw"
+            className="-z-20 object-cover object-[70%_center]"
+          />
+          {/* Dégradé sombre pour garantir la lisibilité du texte blanc */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/35 to-black/10 sm:bg-gradient-to-r sm:from-black/70 sm:via-black/30 sm:to-transparent" />
+          <div className="mx-auto w-full max-w-5xl px-4 pt-24 pb-12 text-white sm:px-6 sm:pb-20">
+            <p className="text-sm font-medium uppercase tracking-widest text-orange-300">
+              {photographe.metier}
+            </p>
+            <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight tracking-tight drop-shadow-sm sm:text-6xl">
+              {photographe.accroche}
+            </h1>
+            <p className="mt-4 text-white/85">{photographe.ville}</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <BoutonContact />
+              <a
+                href="#galerie"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-white/70 px-6 font-medium text-white transition-colors hover:bg-white hover:text-foreground"
+              >
+                Voir la galerie
+              </a>
+            </div>
+            <p className="mt-10 text-xs text-white/70">
+              Photo de démonstration :{" "}
+              <a href={banniere.lien} target="_blank" rel="noopener noreferrer" className="underline hover:text-white">
+                {banniere.auteur}
+              </a>{" "}
+              (Unsplash)
+            </p>
           </div>
         </section>
 
