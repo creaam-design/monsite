@@ -1,69 +1,163 @@
-import Image from "next/image";
+import { galerie, photographe, prestations } from "./contenu-demo";
+
+const mailto = `mailto:${photographe.email}?subject=${encodeURIComponent(
+  "Demande de prestation photo",
+)}`;
+
+function BoutonContact({ className = "" }: { className?: string }) {
+  return (
+    <a
+      href={mailto}
+      className={`inline-flex h-12 items-center justify-center rounded-full bg-accent px-6 font-medium text-white transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${className}`}
+    >
+      Me contacter par e-mail
+    </a>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <p className="bg-accent-soft px-4 py-2 text-center text-sm text-accent-hover">
+        Site de démonstration — les noms, textes, tarifs et images sont fictifs.
+      </p>
+
+      <header className="sticky top-0 z-10 border-b border-border bg-background/90 backdrop-blur">
+        <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+          <a href="#" className="font-semibold tracking-tight">
+            {photographe.nom}
+            <span className="text-accent">.</span>
+          </a>
+          <ul className="hidden gap-6 text-sm text-muted sm:flex">
+            <li><a href="#presentation" className="hover:text-accent">Présentation</a></li>
+            <li><a href="#prestations" className="hover:text-accent">Prestations</a></li>
+            <li><a href="#galerie" className="hover:text-accent">Galerie</a></li>
+          </ul>
+          <a
+            href="#contact"
+            className="rounded-full border border-accent px-4 py-1.5 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-white"
+          >
+            Contact
+          </a>
+        </nav>
+      </header>
+
+      <main className="flex-1">
+        {/* Accroche */}
+        <section className="mx-auto max-w-5xl px-4 pt-16 pb-12 sm:px-6 sm:pt-24">
+          <p className="text-sm font-medium uppercase tracking-widest text-accent">
+            {photographe.metier}
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation - Salem Abdel 
-          </a>
-        </div>
+          <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+            {photographe.accroche}
+          </h1>
+          <p className="mt-4 text-muted">{photographe.ville}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <BoutonContact />
+            <a
+              href="#galerie"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-border px-6 font-medium transition-colors hover:border-accent hover:text-accent"
+            >
+              Voir la galerie
+            </a>
+          </div>
+        </section>
+
+        {/* Présentation */}
+        <section id="presentation" className="scroll-mt-20 border-t border-border">
+          <div className="mx-auto grid max-w-5xl gap-8 px-4 py-16 sm:px-6 md:grid-cols-[1fr_2fr] md:gap-12">
+            <div
+              role="img"
+              aria-label="Portrait du photographe (image de démonstration)"
+              className="relative aspect-[4/5] w-full max-w-xs rounded-lg bg-gradient-to-br from-orange-100 to-stone-300"
+            >
+              <span className="absolute bottom-3 left-3 rounded bg-white/80 px-2 py-1 text-xs text-muted">
+                Photo de démonstration
+              </span>
+            </div>
+            <div>
+              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Présentation</h2>
+              <div className="mt-6 space-y-4 leading-relaxed text-muted">
+                {photographe.presentation.map((paragraphe) => (
+                  <p key={paragraphe}>{paragraphe}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Prestations */}
+        <section id="prestations" className="scroll-mt-20 border-t border-border bg-surface">
+          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Prestations</h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {prestations.map((p) => (
+                <article
+                  key={p.titre}
+                  className="flex flex-col rounded-lg border border-border bg-background p-6"
+                >
+                  <div className="h-1 w-10 rounded-full bg-accent" />
+                  <h3 className="mt-4 text-lg font-semibold">{p.titre}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{p.description}</p>
+                  <ul className="mt-4 space-y-1 text-sm">
+                    {p.details.map((d) => (
+                      <li key={d} className="flex gap-2">
+                        <span className="text-accent" aria-hidden="true">—</span>
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-auto pt-6 text-sm font-medium">{p.prix}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Galerie */}
+        <section id="galerie" className="scroll-mt-20 border-t border-border">
+          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Galerie</h2>
+            <p className="mt-2 text-sm text-muted">
+              Visuels de démonstration — à remplacer par de vraies photos.
+            </p>
+            <div className="mt-8 columns-1 gap-4 sm:columns-2 lg:columns-3">
+              {galerie.map((photo, i) => (
+                <figure key={photo.legende} className="mb-4 break-inside-avoid">
+                  <div
+                    role="img"
+                    aria-label={`${photo.legende} (image de démonstration)`}
+                    className={`relative w-full rounded-lg bg-gradient-to-br ${photo.fond} ${photo.format}`}
+                  >
+                    <span className="absolute top-3 left-3 rounded bg-white/80 px-2 py-1 text-xs text-muted">
+                      Démo n°{i + 1}
+                    </span>
+                  </div>
+                  <figcaption className="mt-2 text-sm text-muted">{photo.legende}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="scroll-mt-20 border-t border-border bg-surface">
+          <div className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Un projet en tête ?</h2>
+            <p className="mx-auto mt-4 max-w-md text-muted">
+              Décrivez-moi votre besoin, je vous réponds sous 48 h avec une proposition adaptée.
+            </p>
+            <BoutonContact className="mt-8 w-full sm:w-auto" />
+            <p className="mt-4 text-sm text-muted">
+              {photographe.email} <span className="text-xs">(adresse de démonstration)</span>
+            </p>
+          </div>
+        </section>
       </main>
-    </div>
+
+      <footer className="border-t border-border px-4 py-6 text-center text-sm text-muted">
+        © {photographe.nom} — site de démonstration
+      </footer>
+    </>
   );
 }
