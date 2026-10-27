@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Camille Exemple — Photographe indépendant (démo)",
+  title: "Robert Exemple — Photographe indépendant (démo)",
   description:
     "Site vitrine de démonstration d’un photographe indépendant : portraits, événements et reportages.",
 };

@@ -2,7 +2,7 @@
 // Nom, adresse e-mail, textes, tarifs et visuels sont fictifs.
 
 export const photographe = {
-  nom: "Camille Exemple",
+  nom: "Robert Exemple",
   metier: "Photographe indépendant",
   ville: "Lyon (ville fictive pour la démo)",
   email: "contact@example.com",
@@ -37,12 +37,12 @@ export const prestations = [
   },
 ];
 
-// Visuels factices : de simples dégradés en attendant les vraies photos.
+// Photos factices : illustrations SVG dans public/demo/, à remplacer par les vraies photos.
 export const galerie = [
-  { legende: "Portrait en lumière naturelle", fond: "from-orange-200 to-stone-300", format: "aspect-[3/4]" },
-  { legende: "Mariage — cérémonie", fond: "from-stone-200 to-stone-400", format: "aspect-square" },
-  { legende: "Paysage urbain", fond: "from-amber-100 to-orange-300", format: "aspect-[4/3]" },
-  { legende: "Portrait studio", fond: "from-stone-300 to-stone-500", format: "aspect-square" },
-  { legende: "Produit — céramique", fond: "from-orange-100 to-amber-200", format: "aspect-[3/4]" },
-  { legende: "Soirée d’entreprise", fond: "from-stone-200 to-orange-200", format: "aspect-[4/3]" },
+  { legende: "Portrait en lumière naturelle", src: "/demo/portrait-lumiere.svg", largeur: 600, hauteur: 800 },
+  { legende: "Mariage — cérémonie", src: "/demo/mariage-ceremonie.svg", largeur: 800, hauteur: 800 },
+  { legende: "Paysage urbain", src: "/demo/paysage-urbain.svg", largeur: 800, hauteur: 600 },
+  { legende: "Portrait studio", src: "/demo/portrait-studio.svg", largeur: 800, hauteur: 800 },
+  { legende: "Produit — céramique", src: "/demo/produit-ceramique.svg", largeur: 600, hauteur: 800 },
+  { legende: "Soirée d’entreprise", src: "/demo/soiree-entreprise.svg", largeur: 800, hauteur: 600 },
 ];
